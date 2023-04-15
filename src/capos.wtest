@@ -1,0 +1,67 @@
+import rolando.*
+import cosas.*
+import moradas.*
+
+describe "Capos tests"{
+	
+	
+	method initialize(){
+		
+	}
+	
+	test "Rolando tiene capacidad de llevar 2 cosas por defecto"{
+		assert.equals(2, rolando.capacidad())
+	}
+
+	test "Rolando levanta espada y libro al encontrarlos pero no el collar divino ya que su capacidad es de 2 cosas"{
+		rolando.encontrar(espadaDelDestino)
+		rolando.encontrar(libroDeHechizos)
+		assert.equals(#{espadaDelDestino,libroDeHechizos},rolando.cosas())
+		assert.notThat(rolando.cosas().contains(collarDivino))
+		//assert.throwsExceptionWithMessage("No puedo llevar más cosas!", {rolando.encontrar(collarDivino)})
+	}
+
+	test "Rolando levanta espada y libro los deja al ir al castillo"{
+		rolando.encontrar(espadaDelDestino)
+		rolando.encontrar(libroDeHechizos)
+		rolando.visitarMorada()
+		//assert.doesNotThrowException({rolando.encontrar(collarDivino)})
+		rolando.encontrar(collarDivino)
+		assert.equals(#{collarDivino}, rolando.cosas())
+		assert.equals(#{espadaDelDestino, libroDeHechizos}, castilloDePiedra.baul())
+	}
+	
+	test "Rolando deja espada y libro en castillo luego levanta collar y al pasar otra vez estan todos en el baul y él no tiene nada"{
+		rolando.encontrar(espadaDelDestino)
+		rolando.encontrar(libroDeHechizos)
+		//Deja todo por lo que libera espacio
+		rolando.visitarMorada()
+		rolando.encontrar(collarDivino)
+		
+		rolando.visitarMorada()
+		
+		assert.that(rolando.cosas().isEmpty())
+		assert.equals(#{espadaDelDestino, libroDeHechizos, collarDivino}, castilloDePiedra.baul())
+	}
+	
+	test "Si Rolando dejó en el castillo el collar y la espada, y tiene encima la armadura, posee los tres, pero el libro no"{
+		rolando.encontrar(collarDivino)
+		rolando.encontrar(espadaDelDestino)
+		rolando.visitarMorada()
+		rolando.encontrar(armaduraDeAceroValyrio)
+		
+		assert.equals(#{espadaDelDestino, armaduraDeAceroValyrio, collarDivino}, rolando.artefactos())
+		assert.notThat(rolando.posee(libroDeHechizos))	
+	}
+	
+	test "Rolando recuerda lo que encontro en el orden correcto aunque lo encuentre más de una vez"{
+	 	rolando.encontrar(espadaDelDestino)
+	 	rolando.encontrar(libroDeHechizos)
+  		rolando.encontrar(collarDivino)
+ 		rolando.visitarMorada()
+ 		rolando.encontrar(armaduraDeAceroValyrio)
+ 		rolando.encontrar(collarDivino)
+	
+ 		assert.equals([espadaDelDestino, libroDeHechizos, collarDivino, armaduraDeAceroValyrio, collarDivino], rolando.historia())
+ 	}
+}
