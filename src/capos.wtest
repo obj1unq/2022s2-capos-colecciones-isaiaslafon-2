@@ -16,8 +16,8 @@ describe "Capos tests"{
 	test "Rolando levanta espada y libro al encontrarlos pero no el collar divino ya que su capacidad es de 2 cosas"{
 		rolando.encontrar(espadaDelDestino)
 		rolando.encontrar(libroDeHechizos)
-		assert.equals(#{espadaDelDestino,libroDeHechizos},rolando.cosas())
-		assert.notThat(rolando.cosas().contains(collarDivino))
+		assert.equals(#{espadaDelDestino,libroDeHechizos},rolando.artefactos())
+		assert.notThat(rolando.artefactos().contains(collarDivino))
 		//assert.throwsExceptionWithMessage("No puedo llevar más cosas!", {rolando.encontrar(collarDivino)})
 	}
 
@@ -27,7 +27,7 @@ describe "Capos tests"{
 		rolando.visitarMorada()
 		//assert.doesNotThrowException({rolando.encontrar(collarDivino)})
 		rolando.encontrar(collarDivino)
-		assert.equals(#{collarDivino}, rolando.cosas())
+		assert.equals(#{collarDivino}, rolando.artefactos())
 		assert.equals(#{espadaDelDestino, libroDeHechizos}, castilloDePiedra.baul())
 	}
 	
@@ -40,7 +40,7 @@ describe "Capos tests"{
 		
 		rolando.visitarMorada()
 		
-		assert.that(rolando.cosas().isEmpty())
+		assert.that(rolando.artefactos().isEmpty())
 		assert.equals(#{espadaDelDestino, libroDeHechizos, collarDivino}, castilloDePiedra.baul())
 	}
 	
@@ -50,7 +50,7 @@ describe "Capos tests"{
 		rolando.visitarMorada()
 		rolando.encontrar(armaduraDeAceroValyrio)
 		
-		assert.equals(#{espadaDelDestino, armaduraDeAceroValyrio, collarDivino}, rolando.artefactos())
+		assert.equals(#{espadaDelDestino, armaduraDeAceroValyrio, collarDivino}, rolando.posesiones())
 		assert.notThat(rolando.posee(libroDeHechizos))	
 	}
 	

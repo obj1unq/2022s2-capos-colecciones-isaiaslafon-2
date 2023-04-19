@@ -1,29 +1,29 @@
 import moradas.*
 
 object rolando{
-	const cosas = #{}
+	const artefactos = #{}
 	const historia = []
 	var morada = castilloDePiedra
 	var property capacidad = 2
 	
-	method encontrar(cosa){
-		historia.add(cosa)
+	method encontrar(artefacto){
+		historia.add(artefacto)
 		//Con errores es dificil testear el historial!
 		//self.validarCapacidad()
-		//cosas.add(cosa)
-		if(self.tieneCapacidad()) cosas.add(cosa)
+		//cosas.add(artefactos)
+		if(self.tieneCapacidad()) artefactos.add(artefacto)
 	}
 	
 	method tieneCapacidad(){
-		return cosas.size() < capacidad
+		return artefactos.size() < capacidad
 	}
 	
 	method validarCapacidad() {
 		if(!self.tieneCapacidad()) self.error("No puedo llevar más cosas!")
 	}
 	
-	method cosas(){
-		return cosas
+	method artefactos(){
+		return artefactos
 	}
 	
 	method morada(_morada){
@@ -31,16 +31,16 @@ object rolando{
 	}
 	
 	method visitarMorada(){
-		morada.guardar(cosas)
-		cosas.clear()
+		morada.guardar(artefactos)
+		artefactos.clear()
 	}
 	
-	method artefactos(){
-		return cosas + morada.baul()
+	method posesiones(){
+		return artefactos + morada.baul()
 	}
 	
-	method posee(cosa){
-		return self.artefactos().contains(cosa)
+	method posee(artefacto){
+		return self.artefactos().contains(artefacto)
 	}
 	
 	method historia(){

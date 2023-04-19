@@ -1,8 +1,8 @@
 object castilloDePiedra {
 	const baul = #{}
 	
-	method guardar(cosas){
-		baul.addAll(cosas)
+	method guardar(artefactos){
+		baul.addAll(artefactos)
 	}
 	
 	method baul(){
