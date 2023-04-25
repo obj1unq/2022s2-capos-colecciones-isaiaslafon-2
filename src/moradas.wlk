@@ -1,12 +1,12 @@
 object castilloDePiedra {
-	const baul = #{}
+	const artefactos = #{}
 	
-	method guardar(artefactos){
-		baul.addAll(artefactos)
+	method guardar(_artefactos){
+		artefactos.addAll(_artefactos)
 	}
 	
-	method baul(){
-		return baul
+	method artefactos(){
+		return artefactos
 	}
 	
 }

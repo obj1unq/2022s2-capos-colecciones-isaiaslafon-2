@@ -117,9 +117,9 @@ entonces el poder de pelea de rolando es 5 + 5 + 6 + 3 = 19
 ### Libro de hechizos
 - El libro de hechizos contiene varios hechizos, pero solo se pueden usar de uno a la vez. 
 Los hechizos están ordenados y se utilizan en ese orden.
-Luego de utilizar  un hechizo éste se descarta. Existen estos 3 hechizos (pero podría haber más)
--- Bendición: aporta 4 de poder de pelea
--- Invisibilidad: aporta la misma cantidad de poder de pelea que el personaje
+Luego de utilizar un hechizo éste se descarta. Existen estos 3 hechizos (pero podría haber más)
+-- Bendición: aporta 4 de poder base del personaje
+-- Invisibilidad: aporta la misma cantidad de poder de base que el personaje
 -- Invocación: Aporta el valor del artefacto más poderoso para el héroe que posee en su morada. (el artefacto del castillo no sufre ningún efecto por la batalla)
 
 Si el libro de hechizos no tiene ningún hechizo, entonces su aporte es nulo.
@@ -170,19 +170,6 @@ de batalla de su enemigo.
 Además de saber si cuenta con un artefacto fatal, se le tiene que poder pedir a rolando
 un artefacto fatal.
 
-
 Si rolando tiene de base 15, la espada, la armadura y el collar, entonces cuenta con un artefacto,
 que es la espada, para enfrentar a astra. 
 Sin embargo no cuenta con ningún artefacto fatal para enfrentar a Caterina. 
-
-
-  
- 
-
-
-
-
-
-
- 
-

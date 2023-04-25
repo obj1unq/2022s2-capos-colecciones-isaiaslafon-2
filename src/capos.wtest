@@ -28,7 +28,7 @@ describe "Capos tests"{
 		//assert.doesNotThrowException({rolando.encontrar(collarDivino)})
 		rolando.encontrar(collarDivino)
 		assert.equals(#{collarDivino}, rolando.artefactos())
-		assert.equals(#{espadaDelDestino, libroDeHechizos}, castilloDePiedra.baul())
+		assert.equals(#{espadaDelDestino, libroDeHechizos}, castilloDePiedra.artefactos())
 	}
 	
 	test "Rolando deja espada y libro en castillo luego levanta collar y al pasar otra vez estan todos en el baul y él no tiene nada"{
@@ -41,7 +41,7 @@ describe "Capos tests"{
 		rolando.visitarMorada()
 		
 		assert.that(rolando.artefactos().isEmpty())
-		assert.equals(#{espadaDelDestino, libroDeHechizos, collarDivino}, castilloDePiedra.baul())
+		assert.equals(#{espadaDelDestino, libroDeHechizos, collarDivino}, castilloDePiedra.artefactos())
 	}
 	
 	test "Si Rolando dejó en el castillo el collar y la espada, y tiene encima la armadura, posee los tres, pero el libro no"{
@@ -64,4 +64,51 @@ describe "Capos tests"{
 	
  		assert.equals([espadaDelDestino, libroDeHechizos, collarDivino, armaduraDeAceroValyrio, collarDivino], rolando.historia())
  	}
+ 	
+ 	test "Rolando con espada, armadura y collar tiene 19 de poder"{
+	 	rolando.capacidad(3)
+	 	rolando.encontrar(espadaDelDestino)
+	 	rolando.encontrar(armaduraDeAceroValyrio)
+  		rolando.encontrar(collarDivino)
+ 		
+ 		assert.equals(19, rolando.poderDePelea())
+ 	}
+ 	
+ 	test "Rolando con espada, armadura y collar luego de pelear tiene 6 de base, espada aporta 3, armadura continua en 6 y collar 3"{
+	 	rolando.capacidad(3)
+	 	rolando.encontrar(espadaDelDestino)
+	 	rolando.encontrar(armaduraDeAceroValyrio)
+  		rolando.encontrar(collarDivino)
+ 		rolando.pelea()
+ 		
+ 		assert.equals(6, rolando.poderBase())
+ 		assert.equals(18, rolando.poderDePelea())
+ 	}
+ 	
+ 	test "Rolando con espada, armadura y collar luego de pelear 2 veces tiene 7 de base, espada aporta 3.5, armadura continua en 6 y collar 3"{
+	 	rolando.capacidad(3)
+	 	rolando.encontrar(espadaDelDestino)
+	 	rolando.encontrar(armaduraDeAceroValyrio)
+  		rolando.encontrar(collarDivino)
+ 		rolando.pelea()//1ra batalla
+ 		rolando.pelea()//2ra batalla
+ 		
+ 		assert.equals(7, rolando.poderBase())
+ 		assert.equals(7+3.5+6+5, rolando.poderDePelea())
+ 	}
+ 	
+ 	test "Rolando con espada, armadura y collar luego de pelear 3 veces tiene 8 de base, espada aporta 4, armadura continua en 6 y collar 6"{
+	 	rolando.capacidad(3)
+	 	rolando.encontrar(espadaDelDestino)
+	 	rolando.encontrar(armaduraDeAceroValyrio)
+  		rolando.encontrar(collarDivino)
+ 		rolando.pelea()//1ra batalla
+ 		rolando.pelea()//2ra batalla
+ 		rolando.pelea()//3ra batalla
+ 		
+ 		assert.equals(8, rolando.poderBase())
+ 		assert.equals(8+4+6+6, rolando.poderDePelea())
+ 	}
+ 	
+ 	
 }
