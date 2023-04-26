@@ -127,7 +127,33 @@ describe "Capos tests"{
 		libroDeHechizos.usar(rolando) //descarta 3 de 3.
 	 	assert.equals(0, libroDeHechizos.poderQueAporta(rolando))
  	}
- 	 */
+ 		 
+ 	test "Rolando con poder base 5, llevando unicamente el libro de hechizos mientras tiene la espada, armadura y collar en el castillo"{
+		rolando.capacidad(3)
+		rolando.poderBase(5)
+		
+		//tiene encima las 3 cosas
+		rolando.encontrar(espadaDelDestino)
+		rolando.encontrar(armaduraDeAceroValyrio)
+		rolando.encontrar(collarDivino)
+		//Las deja en su morada
+		rolando.visitarMorada() 
+		
+		//Solo tiene el libro de hechizos
+		rolando.encontrar(libroDeHechizos)
+		
+	 	assert.equals(4, libroDeHechizos.poderQueAporta(rolando))
+	 	rolando.pelea()
+	 	assert.equals(6, libroDeHechizos.poderQueAporta(rolando))
+	 	rolando.pelea()
+	 	assert.equals(7, libroDeHechizos.poderQueAporta(rolando))
+	 	rolando.pelea()
+	 	assert.equals(0, libroDeHechizos.poderQueAporta(rolando))
+	 	assert.notThat(libroDeHechizos.quedanHechizos())
+ 	}
+ 	*/
+ 	*/
+ 	
  	
  	
  	
