@@ -1,6 +1,7 @@
 import rolando.*
 import cosas.*
 import moradas.*
+import erethia.*
 
 describe "Capos tests"{
 	
@@ -110,16 +111,17 @@ describe "Capos tests"{
  		assert.equals(8+4+6+6, rolando.poderDePelea())
  	}
  	
- 	/*
- 	test "Hechizo Bendicion aporta 4 , Invisibilidad lo mismo que el poder base e Invocacion lo mismo que el artefacto más poderoso que lleve (la armadura)."{
+ 	test "Hechizo Bendicion aporta 4, Invisibilidad lo mismo que el poder base e Invocacion lo mismo que el artefacto más poderoso que lleve (la armadura)."{
+	 	rolando.poderBase(4)
 	 	rolando.encontrar(armaduraDeAceroValyrio)
   		rolando.encontrar(collarDivino)
   		rolando.visitarMorada()
  		
  		assert.equals(4, bendicion.poder(rolando))
  		assert.equals(rolando.poderBase(), invisibilidad.poder(rolando))
- 		assert.equals(armaduraDeAceroValyrio.poderQueAporta(rolando), invocacion.poderQueAporta(rolando))
+ 		assert.equals(armaduraDeAceroValyrio.poderQueAporta(rolando), invocacion.poder(rolando))
  	}
+ 	
  	
  	test "Libro usado 3 veces (vacio) aporta 0"{
 		libroDeHechizos.usar(rolando) //descarta 1 de 3.
@@ -127,10 +129,13 @@ describe "Capos tests"{
 		libroDeHechizos.usar(rolando) //descarta 3 de 3.
 	 	assert.equals(0, libroDeHechizos.poderQueAporta(rolando))
  	}
- 		 
+ 	
  	test "Rolando con poder base 5, llevando unicamente el libro de hechizos mientras tiene la espada, armadura y collar en el castillo"{
 		rolando.capacidad(3)
 		rolando.poderBase(5)
+		libroDeHechizos.agregarHechizo(bendicion)
+		libroDeHechizos.agregarHechizo(invisibilidad)
+		libroDeHechizos.agregarHechizo(invocacion)
 		
 		//tiene encima las 3 cosas
 		rolando.encontrar(espadaDelDestino)
@@ -151,12 +156,31 @@ describe "Capos tests"{
 	 	assert.equals(0, libroDeHechizos.poderQueAporta(rolando))
 	 	assert.notThat(libroDeHechizos.quedanHechizos())
  	}
- 	*/
- 	*/
- 	
- 	
- 	
- 	
+
+	test "Rolando con poder base 5 y capacidad 3 con espada y armadura y collar puede vencer a Astra y Archibaldo"{
+		rolando.capacidad(3)
+		rolando.poderBase(5)
+		rolando.encontrar(espadaDelDestino)
+		rolando.encontrar(armaduraDeAceroValyrio)
+		rolando.encontrar(collarDivino)
+		
+		assert.that(rolando.puedeVencer(astra))
+		assert.that(rolando.puedeVencer(archibaldo))
+		assert.notThat(rolando.puedeVencer(caterina))
+		assert.notThat(erethia.esPoderoso(rolando))
+	}
+	
+	test "Rolando con poder base 10 y capacidad 3 con espada y armadura y collar puede vencer a Astra y Archibaldo"{
+		rolando.capacidad(3)
+		rolando.poderBase(10)
+		rolando.encontrar(espadaDelDestino)
+		rolando.encontrar(armaduraDeAceroValyrio)
+		rolando.encontrar(collarDivino)
+		
+		assert.that(rolando.puedeVencer(caterina))
+		assert.that(erethia.esPoderoso(rolando))
+	}
+	
  	
  	
  	

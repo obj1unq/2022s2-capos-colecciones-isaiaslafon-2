@@ -7,12 +7,36 @@ object rolando{
 	var morada = castilloDePiedra
 	var property capacidad = 2
 	
+	method tieneArtefactoFatal(personaje){
+		return artefactos.any({ artefacto => self.esFatal(artefacto, personaje)})	
+	}
+	
+	method esFatal(artefacto, personaje){
+		return self.poderCon(artefacto) > personaje.poderDePelea()	
+	}
+	
+	method poderCon(artefacto){
+		return poderBase + artefacto.poderQueAporta(self)
+	}
+	
 	method poderDePelea(){
 		return poderBase + self.poderArtefactos()
 	}
 	
+	method puedeVencer(personaje){
+		return personaje.poderDePelea() < self.poderDePelea() 
+	}
+	
+	method artefactoMasPoderosoEnMorada(){
+		return morada.artefactoMasPoderoso(self)
+	}
+	
 	method poderArtefactos(){
 		return artefactos.sum({artefacto => artefacto.poderQueAporta(self)})	
+	}
+	
+	method artefactoFatal(personaje){
+		return artefactos.find({artefacto => self.esFatal(artefacto, personaje)})
 	}
 	
 	method encontrar(artefacto){

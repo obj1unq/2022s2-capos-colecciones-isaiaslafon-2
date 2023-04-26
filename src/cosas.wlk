@@ -14,13 +14,49 @@ object espadaDelDestino {
 	}
 }
 
-object libroDeHechizos{ //Se define después!
-	method poderQueAporta(personaje){
-	 	return "no implementado aun"
+object libroDeHechizos{
+	const hechizos = []
+	 
+	 
+	method agregarHechizo(hechizo){
+		hechizos.add(hechizo)	
 	}
-		
+
+	
+	method poderQueAporta(personaje) = if(self.quedanHechizos()) self.hechizoActual().poder(personaje) else 0
+			
 	method usar(personaje){
-		//Implementar
+		if(self.quedanHechizos()){
+			hechizos.remove(self.hechizoActual())
+		}
+	}
+	
+	method hechizoActual(){
+		return hechizos.head()
+	}
+	
+	method quedanHechizos(){
+		return not hechizos.isEmpty()
+	}
+}
+
+object bendicion{
+	const poder = 4
+	
+	method poder(personaje){
+		return poder
+	}
+}
+
+object invisibilidad{
+	method poder(personaje){
+		return personaje.poderBase()
+	}
+}
+
+object invocacion{
+	method poder(personaje){
+		return personaje.artefactoMasPoderosoEnMorada().poderQueAporta(personaje)
 	}
 }
 
@@ -45,8 +81,7 @@ object armaduraDeAceroValyrio{
 		return 6
 	}
 	
-		
-	method usar(personaje){ 
+	method usar(personaje){ 		
 		//No se gasta nunca!	
 	}
 }

@@ -9,4 +9,8 @@ object castilloDePiedra {
 		return artefactos
 	}
 	
+	method artefactoMasPoderoso(personaje){
+		return artefactos.max({artefacto => artefacto.poderQueAporta(personaje)})
+	}
+	
 }
