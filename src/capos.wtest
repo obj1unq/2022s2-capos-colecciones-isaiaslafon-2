@@ -110,5 +110,29 @@ describe "Capos tests"{
  		assert.equals(8+4+6+6, rolando.poderDePelea())
  	}
  	
+ 	/*
+ 	test "Hechizo Bendicion aporta 4 , Invisibilidad lo mismo que el poder base e Invocacion lo mismo que el artefacto más poderoso que lleve (la armadura)."{
+	 	rolando.encontrar(armaduraDeAceroValyrio)
+  		rolando.encontrar(collarDivino)
+  		rolando.visitarMorada()
+ 		
+ 		assert.equals(4, bendicion.poder(rolando))
+ 		assert.equals(rolando.poderBase(), invisibilidad.poder(rolando))
+ 		assert.equals(armaduraDeAceroValyrio.poderQueAporta(rolando), invocacion.poderQueAporta(rolando))
+ 	}
+ 	
+ 	test "Libro usado 3 veces (vacio) aporta 0"{
+		libroDeHechizos.usar(rolando) //descarta 1 de 3.
+		libroDeHechizos.usar(rolando) //descarta 2 de 3.
+		libroDeHechizos.usar(rolando) //descarta 3 de 3.
+	 	assert.equals(0, libroDeHechizos.poderQueAporta(rolando))
+ 	}
+ 	 */
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
  	
 }

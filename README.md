@@ -118,7 +118,7 @@ entonces el poder de pelea de rolando es 5 + 5 + 6 + 3 = 19
 - El libro de hechizos contiene varios hechizos, pero solo se pueden usar de uno a la vez. 
 Los hechizos están ordenados y se utilizan en ese orden.
 Luego de utilizar un hechizo éste se descarta. Existen estos 3 hechizos (pero podría haber más)
--- Bendición: aporta 4 de poder base del personaje
+-- Bendición: aporta 4 al poder base del personaje
 -- Invisibilidad: aporta la misma cantidad de poder de base que el personaje
 -- Invocación: Aporta el valor del artefacto más poderoso para el héroe que posee en su morada. (el artefacto del castillo no sufre ningún efecto por la batalla)
 
