@@ -12,6 +12,12 @@ object espadaDelDestino {
 	method usar(personaje){
 		estaNueva = false
 	}
+
+	//Alternativa esFatal en artefacto, hay que agregarlo en cada uno.	
+//	method esFatal(personaje, adversario){
+//		return self.poderQueAporta(personaje) + personaje.poderBase() > adversario.poderDePelea()
+//		//return personaje.poderCon(self) > personaje.poderDePelea()	
+//	}
 }
 
 object libroDeHechizos{

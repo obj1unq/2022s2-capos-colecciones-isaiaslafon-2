@@ -9,8 +9,11 @@ object rolando{
 	
 	method tieneArtefactoFatal(personaje){
 		return artefactos.any({ artefacto => self.esFatal(artefacto, personaje)})	
+		//alternativa en artefacto:
+		//return artefactos.any({ artefacto => artefacto.esFatal(self, personaje)})	
 	}
 	
+	//como altenativa se le podría a preguntar al artefacto!
 	method esFatal(artefacto, personaje){
 		return self.poderCon(artefacto) > personaje.poderDePelea()	
 	}
